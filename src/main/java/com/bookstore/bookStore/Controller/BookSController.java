@@ -17,5 +17,13 @@ public class BookSController {
     public String bookRegister(){
         return "bookRegister";
     }
+    @GetMapping("/available_books")
+    public String availableBooks(){
+        return "availableBooks";
+    }
+    @GetMapping("/my_books")
+    public String myBooks(){
+        return "myBooks";
+    }
 
 }
