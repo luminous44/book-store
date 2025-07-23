@@ -1,17 +1,15 @@
 package com.bookstore.bookStore.Controller;
 
+
 import com.bookstore.bookStore.Entity.Book;
 import com.bookstore.bookStore.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@org.springframework.stereotype.Controller
 @RequestMapping("/books")
-public class BookSController {
+public class Controller {
     @Autowired
     private BookService service;
     @GetMapping("/home")
@@ -30,10 +28,11 @@ public class BookSController {
     public String myBooks(){
         return "myBooks";
     }
+
     @PostMapping("/create")
-    public String registerNewBook(@ModelAttribute Book book){
+    public String registerNewBook(@ModelAttribute Book book) {  // ✅ Use @ModelAttribute for form submission
         service.save(book);
-        return "redirect:/available_books";
+        return "redirect:/books/available_books";
     }
 
-}
+    }
