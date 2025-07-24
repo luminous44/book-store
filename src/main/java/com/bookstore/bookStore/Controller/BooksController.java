@@ -6,6 +6,7 @@ import com.bookstore.bookStore.Entity.MyBook;
 import com.bookstore.bookStore.Service.BookService;
 import com.bookstore.bookStore.Service.MyBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,7 +35,10 @@ public class BooksController {
         return new ModelAndView("availableBooks","books",list);
     }
     @GetMapping("/my_books")
-    public String myBooks(){
+    public String myBooks(Model model){
+
+        List<MyBook> bookList = myBookService.getAllBook();
+        model.addAttribute("book",bookList);
         return "myBooks";
     }
 

@@ -15,4 +15,10 @@ public class MyBookService {
     public void saveMyBook(MyBook book){
         myRepo.save(book);
     }
+    public List<MyBook> getAllBook(){
+        return myRepo.findAll();
+    }
+    public void deleteById(Long id){
+        myRepo.deleteById(id);
+    }
 }
