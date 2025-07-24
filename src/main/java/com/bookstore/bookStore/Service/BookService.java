@@ -24,4 +24,8 @@ private BookRepository repo;
     public Book getBookById(Long id){
         return repo.findById(id).get();
     }
+
+    public void deleteBook(Long id) {
+       repo.deleteById(id);
+    }
 }
